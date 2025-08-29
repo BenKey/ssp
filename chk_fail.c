@@ -4,12 +4,12 @@
 * No warranty is given; refer to the file DISCLAIMER.PD within this package.
 */
 
-#include <stdio.h>
 #include <io.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 
-#ifdef _MSC_VER
+#if ((defined(_MSC_VER) || defined(__MINGW64__)) && !defined(__CYGWIN__))
 #  include <intrin.h>
 #endif
 

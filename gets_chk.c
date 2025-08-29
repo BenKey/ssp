@@ -4,9 +4,9 @@
 * No warranty is given; refer to the file DISCLAIMER.PD within this package.
 */
 
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "ssp.h"
 

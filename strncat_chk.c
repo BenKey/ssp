@@ -11,7 +11,7 @@
 char* __cdecl __strncat_chk(char* dst, const char* src, size_t n, size_t bufsize)
 {
   size_t cur_len = strlen(dst);
-  char *orig_dst = dst;
+  char* orig_dst = dst;
   char c;
   if (cur_len > bufsize)
   {

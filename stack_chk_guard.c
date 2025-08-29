@@ -6,8 +6,8 @@
 
 #define _CRT_RAND_S
 
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 #ifndef __SIZEOF_POINTER__
 #  ifdef _MSC_VER
@@ -21,6 +21,9 @@
 
 void* __stack_chk_guard;
 
+#if defined(_MSC_VER) && defined(_SECURE_SCL)
+__declspec(safebuffers)
+#endif
 #if defined __SSP__ || defined __SSP_STRONG__ || defined __SSP_ALL__
 // This function requires `no_stack_protector` because it changes the
 // value of `__stack_chk_guard`, causing stack checks to fail before
@@ -57,7 +60,6 @@ static void __cdecl init(void)
 #endif
     return;
   }
-
   // If rand_s failed (it shouldn't), hardcode a nonzero default stack guard.
 #if __SIZEOF_POINTER__ > 4
   __stack_chk_guard = (void*)0xdeadbeefdeadbeefULL;
