@@ -17,5 +17,5 @@ char* __cdecl __stpcpy_chk(char* dst, const char* src, size_t bufsize)
   {
     __chk_fail();
   }
-  return memcpy(dst, src, n + 1) + n;
+  return (char*)(memcpy(dst, src, n + 1)) + n;
 }

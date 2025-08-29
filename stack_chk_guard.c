@@ -1,13 +1,23 @@
 /**
- * This file has no copyright assigned and is placed in the Public Domain.
- * This file is part of the mingw-w64 runtime package.
- * No warranty is given; refer to the file DISCLAIMER.PD within this package.
- */
+* This file has no copyright assigned and is placed in the Public Domain.
+* This file is part of the mingw-w64 runtime package.
+* No warranty is given; refer to the file DISCLAIMER.PD within this package.
+*/
 
 #define _CRT_RAND_S
 
 #include <stdlib.h>
 #include <stdint.h>
+
+#ifndef __SIZEOF_POINTER__
+#  ifdef _MSC_VER
+#    ifdef _WIN64
+#      define __SIZEOF_POINTER__ 8
+#    else
+#      define __SIZEOF_POINTER__ 4
+#    endif
+#  endif
+#endif
 
 void* __stack_chk_guard;
 
